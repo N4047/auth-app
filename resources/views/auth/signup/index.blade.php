@@ -14,13 +14,13 @@
             </div>
         </form>
         <x-form-footer-wrapper text="{{__('signup.have_acc')}}">
-            <a href="/" class="font-bold">{{__('signup.log_in')}} </a>
+            <a href="{{route('login.index')}}" class="font-bold">{{__('signup.log_in')}} </a>
         </x-form-footer-wrapper>
 
 
     </x-auth-form-wrapper>
-    {{-- <x-auth-lang-change-wrapper>
+    <x-auth-lang-change-wrapper>
         <x-lang-change />
 
-    </x-auth-lang-change-wrapper> --}}
+    </x-auth-lang-change-wrapper>
 </x-auth-layout>

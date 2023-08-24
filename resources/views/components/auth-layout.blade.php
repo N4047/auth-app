@@ -1,7 +1,7 @@
 <x-layout>
     <div class="flex flex-col md:flex-row ml-4">
-        <div class="flex-1 mx-2 md:mx-28 mt-11">
-            <a href="/" class="italic text-4xl text-[#4899d8] font-bold">Home</a>
+        <div class="flex-1 mx-2 md:mx-28 mt-11 h-[400px]">
+            <a href="/" class="italic text-4xl text-[#4899d8] font-bold">{{__('utils.home')}}</a>
             <div class="mt-14 md:min-w-min	">
                 {{$slot}}
             </div>

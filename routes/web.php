@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::view('register', 'auth.signup.index')->name('register.index');
+Route::view('login', 'auth.login.index')->name('login.index');
+
+Route::get('set-language/{language}', [LanguageController::class, 'setLanguage'])->name('set-language');
