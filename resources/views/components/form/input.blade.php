@@ -2,7 +2,6 @@
 
 <x-form.field>
     <x-form.label name={{$name}} />
-
     @if(!$errors->any())
     <input
         class="border border-gray-500 p-2 w-full rounded  focus:border-dark-blue focus:shadow-input-box-shadow-blue focus:outline-none active:outline-none active:shadow-input-box-shadow-blue rounded-lg px-6 bg-[#f2fafb]"

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailVerifyController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
@@ -16,14 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect(route('login.index'));
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::redirect('/', 'dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::view('register', 'auth.signup.index')->name('register.index');
-Route::view('login', 'auth.login.index')->name('login.index');
+Route::view('register', 'auth.signup.index')->name('register.index')->middleware('guest');
+Route::view('login', 'auth.login.index')->name('login.index')->middleware('guest');
 
-Route::post('register', [RegisterController::class, 'register'])->name('register');
+
+Route::post('register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
+Route::post('login', [LoginController::class, 'login'])->name('login')->middleware('guest', 'ensure.email.verified');
+
 
 Route::get('set-language/{language}', [LanguageController::class, 'setLanguage'])->name('set-language');
 

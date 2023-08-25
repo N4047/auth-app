@@ -1,6 +1,6 @@
 <x-auth-layout>
     <x-auth-form-wrapper title="{{__('login.title')}}" description="{{__('login.description')}}">
-        <form method="POST" action="/">
+        <form method="POST" action="{{route('login')}}">
             @csrf
             <x-form.input name='username' placeholder="{{__('placeholder.emailorusername')}}" />
             <x-form.input name='password' type='password' placeholder="{{__('placeholder.password')}}" />
