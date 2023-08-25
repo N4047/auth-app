@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailVerifyController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::view('register', 'auth.signup.index')->name('register.index')->middleware('guest');
+Route::view('login', 'auth.login.index')->name('login.index')->middleware('guest');
+Route::view('reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
+Route::view('forgot-password', 'auth.resetpasswordreq.index')->name('password.resetrequest');
+Route::view('register-verification-email-sent', 'auth.resetpassword.email-sent')->name('register.emailsent');
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('/', 'dashboard');
@@ -26,15 +34,24 @@ Route::middleware(['auth'])->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::view('register', 'auth.signup.index')->name('register.index')->middleware('guest');
-Route::view('login', 'auth.login.index')->name('login.index')->middleware('guest');
+
+Route::middleware(['guest'])->group(function () {
+
+    Route::post('register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
+    Route::post('login', [LoginController::class, 'login'])->name('login')->middleware('guest', 'ensure.email.verified');
 
 
-Route::post('register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
-Route::post('login', [LoginController::class, 'login'])->name('login')->middleware('guest', 'ensure.email.verified');
+    Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'emailVerify'])->name('verification.verify');
+    Route::view('email/verify', 'email-sent')->name('verification.notice');
+
+
+    Route::controller(PasswordResetController::class)->group(function () {
+        Route::post('reset-password', 'resetPassword')->name('password.resetrequest.post');
+        Route::get('reset-password/{token}', 'index')->name('password.resetform');
+        Route::post('reset-password/{token}', 'changePassword')->name('password.update');
+    });
+
+});
 
 
 Route::get('set-language/{language}', [LanguageController::class, 'setLanguage'])->name('set-language');
-
-Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'emailVerify'])->name('verification.verify');
-Route::view('email/verify', 'email-sent')->name('verification.notice');

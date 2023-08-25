@@ -8,7 +8,7 @@
                 <x-checkbox label="{{__('login.remember')}}" />
                 <div class="inline-flex items-center mt-6 ">
                     <a href="
-                    {{-- {{route('password.resetrequest')}} --}}
+                    {{route('password.resetrequest')}}
                     "
 
                         class="text-blue-600 font-medium text-sm">{{__('login.forgot_password')}}</a>
