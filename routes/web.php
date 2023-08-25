@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\OAuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailVerifyController;
@@ -21,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::view('register', 'auth.signup.index')->name('register.index')->middleware('guest');
-Route::view('login', 'auth.login.index')->name('login.index')->middleware('guest');
 Route::view('reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
 Route::view('forgot-password', 'auth.resetpasswordreq.index')->name('password.resetrequest');
 Route::view('register-verification-email-sent', 'auth.resetpassword.email-sent')->name('register.emailsent');
@@ -39,6 +39,9 @@ Route::middleware(['guest'])->group(function () {
 
     Route::post('register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
     Route::post('login', [LoginController::class, 'login'])->name('login')->middleware('guest', 'ensure.email.verified');
+    Route::get('login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
+
+
 
 
     Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'emailVerify'])->name('verification.verify');
@@ -51,6 +54,13 @@ Route::middleware(['guest'])->group(function () {
         Route::post('reset-password/{token}', 'changePassword')->name('password.update');
     });
 
+});
+
+
+
+
+Route::controller(OAuthController::class)->group(function () {
+    Route::get('auth/google-callback', 'callbackGoogle')->name('google.callback');
 });
 
 

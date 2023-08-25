@@ -4,11 +4,20 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+    public function index(Request $request): View
+    {
+        return view('auth.login.index', ['url' => Socialite::driver('google')->stateless()->redirect()->getTargetUrl()]);
+    }
+
     public function login(LoginRequest $request): RedirectResponse
     {
         $validated = $request->validated();

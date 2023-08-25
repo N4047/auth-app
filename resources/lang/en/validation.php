@@ -12,4 +12,5 @@ return [
     'user_not_found'				                   => 'User not found',
     'email_not_verified'                   => 'Email is not verified',
     'required'                             => 'This field is required',
+    'google_user'                           => 'The user with this email has a Google account linked.'
 ];
