@@ -5,6 +5,9 @@ return [
     'sign_up' => 'SIGN UP',
     'english'                               => 'English',
     'georgian'                              => 'Georgian',
-    'home'                          => 'Home',
-    'google'       => 'Sign in with Google'
+    'home'                          => 'HOME',
+    'google'       => 'Sign in with Google',
+    'add_image'     => 'Add Profile Image',
+    'submit'        => 'Save',
+    'change_username' => 'Click here to change Username'
 ];
