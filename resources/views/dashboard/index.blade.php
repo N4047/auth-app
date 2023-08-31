@@ -9,7 +9,7 @@
                     placeholder="{{__('utils.image')}}" />
             </div>
             <div :class="{ 'hidden': !show }" class="md:w-[500px]">
-                <x-form.input name='username' placeholder="{{__('placeholder.emailorusername')}}" />
+                <x-form.input name='username' placeholder="{{__('placeholder.new_username')}}" />
             </div>
             <x-form.button>{{__('utils.submit')}}</x-form.button>
         </form>

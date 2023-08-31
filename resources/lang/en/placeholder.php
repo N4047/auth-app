@@ -8,4 +8,5 @@ return [
     'repeat_password'   => 'Repeat Password',
     'new_password'      => 'Enter New Password',
     'search_by_country' => 'search by country',
+    'new_username'      => 'Enter new Username'
 ];

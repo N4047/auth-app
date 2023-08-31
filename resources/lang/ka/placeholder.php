@@ -8,4 +8,5 @@ return [
     'repeat_password'   => 'გაიმეორეთ პაროლი',
     'new_password'      => 'შეიყვანეთ ახალი პაროლი',
     'search_by_country' => 'ძებნა ქვეყნით',
+    'new_username'      => 'შეიყვანეთ ახალი მომხმარებლის სახელი'
 ];
