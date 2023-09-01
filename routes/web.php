@@ -26,11 +26,12 @@ Route::view('register', 'auth.signup.index')->name('register.index')->middleware
 Route::view('reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
 Route::view('forgot-password', 'auth.resetpasswordreq.index')->name('password.resetrequest');
 Route::view('register-verification-email-sent', 'auth.resetpassword.email-sent')->name('register.emailsent');
+Route::view('home', 'home.index')->name('home.index');
 
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::redirect('/', 'dashboard');
+    Route::redirect('/', 'home');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('update-profile', [UserController::class, 'update'])->name('user.update');

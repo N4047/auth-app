@@ -29,7 +29,7 @@ class OAuthController extends Controller
 
             Auth::login($user);
 
-            return redirect()->route('dashboard.index');
+            return redirect()->route('home.index');
         } catch(\Throwable $th) {
             dd($th);
             return redirect()->back();

@@ -1,4 +1,5 @@
 <x-reset-password-layout title="{{__('messages.reset_password')}}">
+    <title>{{__('messages.reset_password')}}</title>
     <form method="POST" action="{{route('password.update',[$token])}}">
         @csrf
         <x-form.input name="new_password" placeholder="{{__('placeholder.new_password')}}" type='password' />

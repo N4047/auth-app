@@ -1,4 +1,5 @@
 <x-messages-layout>
+    <title>{{__('messages.reset-password-changed')}}</title>
     <p class="mt-4">{{__('messages.reset-password-changed')}}</p>
     <div class="mt-24 flex items-center justify-center">
         <a href="{{route('login.index')}}"

@@ -9,5 +9,8 @@ return [
     'google'       => 'Sign in with Google',
     'add_image'     => 'Add Profile Image',
     'submit'        => 'Save',
-    'change_username' => 'Click here to change Username'
-];
+    'change_username' => 'Click here to change Username',
+    'user_profile'  => 'User Profile',
+    'pricing_tables'    => 'Pricing tables'
+]
+;

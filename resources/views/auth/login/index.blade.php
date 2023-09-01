@@ -1,4 +1,5 @@
 <x-auth-layout>
+    <title>{{__('utils.log_in')}}</title>
     <x-auth-form-wrapper title="{{__('login.title')}}" description="{{__('login.description')}}">
         <form method="POST" action="{{route('login')}}" >
             @csrf

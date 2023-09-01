@@ -24,7 +24,7 @@ class LoginController extends Controller
         $fieldType = filter_var($validated['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         if (auth()->attempt([$fieldType => $validated['username'], 'password' => $validated['password']], $request['remember_me'])) {
-            return redirect(route('dashboard.index'));
+            return redirect(route('home.index'));
         } else {
             throw ValidationException::withMessages([
                 'username' => __('validation.wrong_credential'),
