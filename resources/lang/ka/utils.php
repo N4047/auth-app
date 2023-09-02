@@ -11,5 +11,11 @@ return [
     'submit'        => 'შენახვა',
     'change_username' => 'მომხმარებლის სახელის შესაცვლელად დააჭირეთ აქ',
     'user_profile'  => 'პირადი ინფორმაცია',
-    'pricing_tables'    => 'პაკეტები'
+    'pricing_tables'    => 'პაკეტები',
+    'checkout'          => 'კალათა',
+    'product'           => 'პროდუქტი',
+    'price'             => 'ფასი',
+    'period'            => 'პერიოდ',
+    'total'             => 'საერთო ფასი',
+    'proceed_to_payment' => 'შეძენა'
 ];

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailVerifyController;
 use App\Http\Controllers\LanguageController;
@@ -26,7 +27,6 @@ Route::view('register', 'auth.signup.index')->name('register.index')->middleware
 Route::view('reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
 Route::view('forgot-password', 'auth.resetpasswordreq.index')->name('password.resetrequest');
 Route::view('register-verification-email-sent', 'auth.resetpassword.email-sent')->name('register.emailsent');
-Route::view('home', 'home.index')->name('home.index');
 
 
 
@@ -35,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::post('update-profile', [UserController::class, 'update'])->name('user.update');
+    Route::view('home', 'home.index')->name('home.index');
+    Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
 });
 
 

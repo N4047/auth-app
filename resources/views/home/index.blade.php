@@ -19,8 +19,11 @@
                                 <li>✓ {{__('home.tab_usage_analitics')}}</li>
                                 <li>✓ {{__('home.search_tabs')}}</li>
                             </ul>
-                            <div class="button"><a href="#" class="btn btn-outline pricing-btn">
-                                    {{__('home.get_started')}}</a>
+                            <div class="button"> <a
+                                    href="{{ route('checkout.index', ['price' => '3.99', 'product' => "basic_plan", 'period' => 'month']) }}"
+                                    class="btn btn-outline pricing-btn">
+                                    {{ __('home.get_started') }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +45,7 @@
                                 <li>✓ {{__('home.sync_devices')}}</li>
 
                             </ul>
-                            <div class="button"><a href="#"
+                            <div class="button"><a  href="{{ route('checkout.index', ['price' => '6.99', 'product' => "professional" , 'period' => 'month']) }}"
                                     class="btn btn-outline pricing-btn button-theme">{{__('home.get_started')}}</a>
                             </div>
                         </div>
@@ -61,7 +64,7 @@
                                 <li>✓ {{__('home.tab_usage_analitics')}}</li>
                                 <li>✓ {{__('home.search_tabs')}}</li>
                             </ul>
-                            <div class="button"><a href="#" class="btn btn-outline pricing-btn">
+                            <div class="button"><a  href="{{ route('checkout.index', ['price' => '41.99',  'product' => "basic_plan", 'period' => 'year']) }}" class="btn btn-outline pricing-btn">
                                     {{__('home.get_started')}}</a>
                             </div>
                         </div>
@@ -152,8 +155,8 @@
         transition: .1s ease-in;
     }
 
-    .pricing:hover{
-        box-shadow: 0 0 35px rgba(0, 0, 0, 0.272);   
+    .pricing:hover {
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.272);
     }
 
     .pricing .price-header {
