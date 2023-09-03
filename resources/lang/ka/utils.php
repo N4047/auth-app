@@ -15,7 +15,7 @@ return [
     'checkout'          => 'კალათა',
     'product'           => 'პროდუქტი',
     'price'             => 'ფასი',
-    'period'            => 'პერიოდ',
+    'period'            => 'პერიოდი',
     'total'             => 'საერთო ფასი',
     'proceed_to_payment' => 'შეძენა'
 ];

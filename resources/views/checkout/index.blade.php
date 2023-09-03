@@ -1,6 +1,6 @@
 <x-dashboard-layout>
 
-    <x-slot name="title">Checkout</x-slot>
+    <title>{{__('utils.checkout')}}</title>
 
     <div class="p-4 md:p-6 lg:p-8">
         <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6">{{__('utils.checkout')}}</h1>
@@ -36,10 +36,18 @@
                 <p class="text-lg md:text-xl lg:text-2xl font-semibold">{{__('utils.total')}}: {{$price}}$</p>
             </div>
         </div>
-        <button
-            class="w-full md:w-auto bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 mt-4 rounded-lg focus:outline-none">
-            {{__('utils.proceed_to_payment')}}
-        </button>
+
+
+        <form method="POST" action="{{route('session')}}">
+            @csrf
+            <input type='hidden' name="total" value="{{$price}}">
+            <input type='hidden' name="productname" value="{{$product}}">
+            <button
+                class="w-full md:w-auto bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 mt-4 rounded-lg focus:outline-none">
+                {{__('utils.proceed_to_payment')}}
+            </button>
+        </form>
+
     </div>
 
 </x-dashboard-layout>

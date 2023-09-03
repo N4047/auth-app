@@ -1,6 +1,13 @@
 <x-dashboard-layout>
     <title>{{__('utils.pricing_tables')}}</title>
     <section class="pricing-tables content-area">
+        @if(session('success') || session('cancel'))
+        <div id="successMessage"
+            class="fixed w-[80%] sm:w-[60%] md:w-[40%] lg:w-[30%] rounded-xl text-center flex items-center justify-center right-4 top-4 h-[50px] {{ session('success') ? 'bg-green-500' : 'bg-red-500' }} text-white shadow-md">
+            <p class="font-semibold">{{session('success') ? __('home.payment_success') : __('home.payment_failed')}}</p>
+        </div>
+        @endif
+
         <div class="container">
             <!-- Main title -->
             <div class="main-title text-center">
@@ -19,8 +26,8 @@
                                 <li>✓ {{__('home.tab_usage_analitics')}}</li>
                                 <li>✓ {{__('home.search_tabs')}}</li>
                             </ul>
-                            <div class="button"> <a
-                                    href="{{ route('checkout.index', ['price' => '3.99', 'product' => "basic_plan", 'period' => 'month']) }}"
+                            <div class="button"> <a href="{{ route('checkout.index', ['price' => '3.99', 'product' => "
+                                    basic_plan", 'period'=> 'month']) }}"
                                     class="btn btn-outline pricing-btn">
                                     {{ __('home.get_started') }}
                                 </a>
@@ -45,7 +52,8 @@
                                 <li>✓ {{__('home.sync_devices')}}</li>
 
                             </ul>
-                            <div class="button"><a  href="{{ route('checkout.index', ['price' => '6.99', 'product' => "professional" , 'period' => 'month']) }}"
+                            <div class="button"><a href="{{ route('checkout.index', ['price' => '6.99', 'product' => "
+                                    professional" , 'period'=> 'month']) }}"
                                     class="btn btn-outline pricing-btn button-theme">{{__('home.get_started')}}</a>
                             </div>
                         </div>
@@ -64,7 +72,8 @@
                                 <li>✓ {{__('home.tab_usage_analitics')}}</li>
                                 <li>✓ {{__('home.search_tabs')}}</li>
                             </ul>
-                            <div class="button"><a  href="{{ route('checkout.index', ['price' => '41.99',  'product' => "basic_plan", 'period' => 'year']) }}" class="btn btn-outline pricing-btn">
+                            <div class="button"><a href="{{ route('checkout.index', ['price' => '41.99',  'product' => "
+                                    basic_plan", 'period'=> 'year']) }}" class="btn btn-outline pricing-btn">
                                     {{__('home.get_started')}}</a>
                             </div>
                         </div>
@@ -308,3 +317,22 @@
         }
     }
 </style>
+
+<script>
+    function hideSuccessMessage() {
+        var successMessage = document.getElementById("successMessage");
+        if (successMessage) {
+            successMessage.style.opacity = "1";
+            setTimeout(function () {
+                successMessage.style.opacity = "0";
+                setTimeout(function () {
+                    successMessage.style.display = "none";
+                }, 300); 
+            }, 3000); 
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        hideSuccessMessage();
+    });
+</script>

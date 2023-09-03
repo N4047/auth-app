@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailVerifyController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('update-profile', [UserController::class, 'update'])->name('user.update');
     Route::view('home', 'home.index')->name('home.index');
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+    Route::post('session', [StripeController::class, 'session'])->name('session');
+    Route::get('success', [StripeController::class, 'success'])->name('success');
+    Route::get('cancel', [StripeController::class, 'cancel'])->name('cancel');
 
 });
 

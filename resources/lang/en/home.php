@@ -12,5 +12,8 @@ return [
     'get_started'           => 'Get Started',
     'featured'              => 'Featured',
     'professional'          => 'Professional',
+    'payment_success'       => 'Payment Successfully Made',
+    'payment_failed'       => 'Payment Failed'
+
 
 ];

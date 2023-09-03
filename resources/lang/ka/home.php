@@ -12,4 +12,6 @@ return [
     'get_started'           => 'დაწყება',
     'featured'              => 'შეთავაზება',
     'professional'          => 'პროფესიონალური',
+    'payment_success'       => 'გადახდა შესრულებულია',
+    'payment_failed'       => 'შეცდომა გადახდისას'
 ];
