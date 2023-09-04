@@ -160,6 +160,7 @@
         position: relative;
         z-index: 9;
         box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+        min-height: 600px;
         border-radius: 20px;
         transition: .1s ease-in;
     }
@@ -236,6 +237,16 @@
 
     }
 
+    .button{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 10%;
+    }
+
+
+
+
     .btn-outline {
         border-radius: 50px;
         border: solid 1px linear-gradient(to right, #5691e2, #21e1e7, #34c9ea);
@@ -253,7 +264,7 @@
 
         color: #fff;
     }
-
+  
     .button-theme {
         background: linear-gradient(to right, #5691e2, #21e1e7, #34c9ea);
 
@@ -310,12 +321,14 @@
 
 
 
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         .col-sm-12 {
             flex: 0 0 100%;
             max-width: 100%;
         }
     }
+
+
 </style>
 
 <script>
